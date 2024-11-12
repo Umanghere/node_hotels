@@ -39,8 +39,10 @@
 
 const express = require("express");
 const app = express();
-
+require("dotenv").config();
 const db = require("./db");
+
+const PORT = process.env.PORT || 3500;
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -75,6 +77,6 @@ app.use('/menuItem', menuItemRoutes);
 //     res.send("This is C");
 // })
 
-app.listen(3500, () => {
+app.listen(PORT, () => {
   console.log("Listening on port 3500");
 });
